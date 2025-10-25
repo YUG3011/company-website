@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Graphic Designing - Sofzenix</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #020617;
+            color: #fff
+        }
+
+        .service-hero {
+            min-height: 56vh;
+            padding: 120px 24px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        .service-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, #0f172a, #1e293b, #0f172a);
+            opacity: .95
+        }
+
+        .service-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url('bg-stars.jpg') center/cover no-repeat;
+            mix-blend-mode: screen;
+            opacity: .25
+        }
+
+        .service-hero-inner {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 960px
+        }
+
+        .breadcrumb {
+            font-size: .85rem;
+            color: #94a3b8;
+            margin-bottom: 16px
+        }
+
+        .breadcrumb a {
+            color: #38bdf8;
+            text-decoration: none
+        }
+
+        .service-heading {
+            font-size: clamp(2.1rem, 5vw, 3.4rem);
+            font-weight: 800;
+            margin: 0 0 14px;
+            line-height: 1.15
+        }
+
+        .service-heading span {
+            background: linear-gradient(90deg, #f472b6, #f59e0b, #38bdf8, #6366f1);
+            background-size: 220% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: hueFlow 10s linear infinite
+        }
+
+        .service-sub {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            max-width: 760px;
+            margin: 0 auto 28px;
+            line-height: 1.55
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center
+        }
+
+        .cta-row a {
+            background: #f472b6;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 24px;
+            font-weight: 600;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px -6px #f472b666;
+            transition: .25s
+        }
+
+        .cta-row a.secondary {
+            background: #475569
+        }
+
+        .cta-row a:hover {
+            transform: translateY(-3px)
+        }
+
+        @keyframes hueFlow {
+            0% {
+                background-position: 0 50%
+            }
+
+            100% {
+                background-position: 220% 50%
+            }
+        }
+
+        .content-section {
+            padding: 40px 20px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #cbd5e1;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 26px;
+            margin-top: 30px
+        }
+
+        .feature-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 26px 24px 30px;
+            background: linear-gradient(140deg, rgba(30, 41, 59, .78), rgba(15, 23, 42, .94));
+            border: 1px solid rgba(56, 189, 248, .25);
+            border-radius: 28px;
+            min-height: 200px;
+            overflow: hidden;
+            color: #fff;
+            isolation: isolate;
+            box-shadow: 0 10px 40px -15px #000 inset, 0 8px 32px -12px #0f172acc;
+            transition: .5s;
+            backdrop-filter: blur(14px) saturate(1.4);
+        }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, .45), transparent 70%);
+            opacity: .45;
+            mix-blend-mode: overlay;
+            transition: .6s;
+        }
+
+        .feature-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(120deg, #38bdf8, #6366f1, #f472b6, #38bdf8);
+            background-size: 300% 100%;
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: .55;
+            transition: .6s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px -18px #6366f1aa, 0 8px 40px -10px #0f172acc;
+        }
+
+        .feature-card:hover::after {
+            animation: borderShift 4s linear infinite;
+        }
+
+        .feature-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            font-size: 1.6rem;
+            background: linear-gradient(120deg, #38bdf8, #6366f1);
+            box-shadow: 0 4px 18px -6px #6366f199;
+            margin: 0 0 6px;
+            font-weight: 700;
+        }
+
+        .feature-title {
+            margin: 0;
+            font-size: 1.0rem;
+            letter-spacing: .4px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .feature-desc {
+            margin: 0;
+            font-size: .8rem;
+            line-height: 1.5;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .back-top {
+            display: inline-block;
+            margin-top: 48px;
+            text-decoration: none;
+            color: #6366f1;
+            font-weight: 600
+        }
+
+        .back-top:hover {
+            text-decoration: underline
+        }
+    </style>
+    <meta name="description" content="Graphic designing and brand identity services — UI, visual design, and marketing assets.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://www.sofzenix.in/graphic-designing.html">
+    <meta property="og:title" content="Graphic Designing - Sofzenix">
+    <meta property="og:description" content="Graphic designing and brand identity services — UI, visual design, and marketing assets.">
+    <meta property="og:url" content="https://www.sofzenix.in/graphic-designing.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="image/title-logo/Sofzenix IT Solutions.png">
+<link rel="apple-touch-icon" href="image/title-logo/Sofzenix IT Solutions.png">
+</head>
+
+<body class="page-fade-in">
+    <div class="animated-bg"></div>
+    <div class="floating-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+        <div class="shape shape4"></div>
+    </div>
+    <style>
+        body {
+            padding-top: 78px
+        }
+    </style>
+    <nav class="sfz-navbar">
+        <div class="sfz-nav-inner">
+            <div class="sfz-brand"><a href="index.html"><img src="Sofzenix IT Solution.png"
+                        alt="Sofzenix IT Solutions LLP Logo"></a></div>
+            <input type="checkbox" id="sfz-nav-toggle" aria-label="Toggle navigation">
+            <label for="sfz-nav-toggle" class="sfz-burger"
+                aria-label="Menu"><span></span><span></span><span></span></label>
+            <ul class="sfz-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li class="sfz-drop">
+                    <input type="checkbox" id="sfz-services" class="sfz-drop-toggle">
+                    <label for="sfz-services" class="sfz-drop-label">Services</label>
+                    <div class="sfz-drop-panel">
+                        <a href="web-dev.html">Web Platforms</a>
+                        <a href="mobile-app-dev.html">Mobile Products</a>
+                        <a href="digital-marketing.html">Digital Marketing</a>
+                        <a href="ai.html">AI & Automation</a>
+                        <a href="graphic-designing.html">UI & UX</a>
+                        <a href="saleforce-dev.html">Salesforce Cloud</a>
+                        <a href="maintenance-support.html">Managed Ops & 24/7</a>
+                    </div>
+                </li>
+                <li><a href="hiring.html">Hire</a></li>
+            <li><a href="partners.html">Partners</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="sfz-mobile-actions">
+                    <div class="sfz-mobile-btns">
+                        <a href="php/verify.php" class="verify-btn">Verify</a>
+                        <a href="php/login.php" class="get-started">Login</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="sfz-actions">
+                <a href="php/verify.php" class="verify-btn">Verify</a>
+                <a href="php/login.php" class="get-started">Login</a>
+            </div>
+        </div>
+    </nav>
+    <style>
+        body {
+            padding-top: 78px
+        }
+    </style>
+    <header class="service-hero">
+        <div class="service-hero-inner">
+            <div class="breadcrumb"><a href="index.html#home">Home</a> / <a
+                    href="index.html#technology-section">Services</a> / Graphic Designing</div>
+            <div class="site-tagline">"<span>Your Vision, Our Code</span>"</div>
+            <h1 class="service-heading"><span>Graphic Designing</span></h1>
+            <div class="service-sub">Brand identities & visual systems crafted for clarity, emotion, differentiation and
+                multi‑channel consistency.</div>
+            <div class="cta-row"><a href="contact.html">Start a Brand Project</a><a href="index.html#portfolio"
+                    class="secondary">View Designs</a></div>
+        </div>
+    </header>
+    <main class="content-section">
+        <h2 style="font-size:1.85rem;margin:0 0 10px;font-weight:800;letter-spacing:.5px;">Design Capabilities</h2>
+        <p style="max-width:780px;line-height:1.6;font-size:1.02rem;color:#334155;">We translate strategic positioning
+            into cohesive visual languages extending across digital & print touchpoints.</p>
+
+        <div class="content-grid features-six-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">Brand Strategy</div>
+                <div class="feature-desc">Personality, messaging pillars & audience differentiation mapping.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <div class="feature-title">Identity Systems</div>
+                <div class="feature-desc">Logo suites, typography, color, iconography & motion guidelines.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🖥️</div>
+                <div class="feature-title">Digital UI Assets</div>
+                <div class="feature-desc">Reusable component kits & marketing creative ready for scale.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📰</div>
+                <div class="feature-title">Print & Collateral</div>
+                <div class="feature-desc">Decks, brochures, packaging & event materials that convert.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧪</div>
+                <div class="feature-title">Creative Testing</div>
+                <div class="feature-desc">Variant cycles improving CTR, engagement & retention metrics.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">♻️</div>
+                <div class="feature-title">Design Ops</div>
+                <div class="feature-desc">Versioning, documentation & asset governance workflows.</div>
+            </div>
+        </div>
+        <a class="back-top" href="index.html#technology-section">← Back to Services</a>
+    </main>
+    <div class="careers-footer">© 2023 Sofzenix IT Solutions LLP</div>
+</body>
+
+</html>

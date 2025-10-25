@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Careers at Sofzenix</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #020617;
+      color: #fff;
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+    }
+
+    .navbar-placeholder {
+      height: 70px;
+    }
+
+    .careers-hero {
+      position: relative;
+      min-height: 68vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 140px 28px 120px;
+      overflow: hidden;
+      background: radial-gradient(circle at 22% 30%, #1e293b, #020617 70%);
+    }
+
+    .careers-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(60deg, rgba(255, 255, 255, .04)0 2px, transparent 2px 90px);
+      mix-blend-mode: overlay;
+      opacity: .35;
+    }
+
+    .careers-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 70%, rgba(99, 102, 241, .25), transparent 60%);
+      filter: blur(40px);
+      opacity: .7;
+    }
+
+    .careers-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    .careers-badge-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .careers-badge-row span {
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .12);
+      padding: 8px 14px;
+      font-size: .65rem;
+      letter-spacing: .65px;
+      font-weight: 700;
+      border-radius: 12px;
+      text-transform: uppercase;
+      color: #e2e8f0;
+    }
+
+    .careers-title {
+      margin: 0;
+      font-size: clamp(2.4rem, 5.2vw, 3.9rem);
+      font-weight: 800;
+      letter-spacing: .6px;
+      line-height: 1.06;
+      background: linear-gradient(90deg, #38bdf8, #6366f1, #f472b6);
+      -webkit-background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: gradSlide 12s linear infinite;
+    }
+
+    .careers-sub {
+      margin: 0 auto 6px;
+      max-width: 820px;
+      font-size: 1.08rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+
+    .hero-careers-cta {
+      display: inline-block;
+      padding: 16px 34px;
+      font-weight: 700;
+      font-size: .85rem;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 16px;
+      background: linear-gradient(120deg, #38bdf8, #6366f1, #f472b6);
+      background-size: 220% 100%;
+      color: #fff;
+      box-shadow: 0 12px 40px -18px #6366f199;
+      transition: .55s;
+    }
+
+    .hero-careers-cta:hover {
+      background-position: 100% 50%;
+      transform: translateY(-4px);
+    }
+
+    @keyframes gradSlide {
+      0% {
+        background-position: 0 50%
+      }
+
+      100% {
+        background-position: 200% 50%
+      }
+    }
+
+    /* Roles Section */
+    .roles-section {
+      position: relative;
+      padding: 110px clamp(1.3rem, 5vw, 4rem) 120px;
+      background: radial-gradient(circle at 75% 20%, #1e293b, #020617 70%);
+      overflow: hidden;
+    }
+
+    .roles-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(45deg, rgba(255, 255, 255, .03)0 2px, transparent 2px 80px);
+      mix-blend-mode: overlay;
+      opacity: .35;
+    }
+
+    .roles-head {
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto 60px;
+    }
+
+    .roles-head h2 {
+      margin: 0 0 20px;
+      font-size: clamp(2.1rem, 4.8vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: .5px;
+      background: linear-gradient(90deg, #38bdf8, #6366f1, #f472b6);
+      -webkit-background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: gradSlide 14s linear infinite;
+    }
+
+    .roles-head p {
+      margin: 0;
+      font-size: 1.03rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 0 34px;
+    }
+
+    .filter-bar button {
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .12);
+      padding: 10px 18px;
+      border-radius: 14px;
+      color: #e2e8f0;
+      font-size: .7rem;
+      letter-spacing: .7px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .4s;
+    }
+
+    .filter-bar button.active,
+    .filter-bar button:hover {
+      background: linear-gradient(120deg, #38bdf8, #6366f1);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 34px;
+      position: relative;
+    }
+
+    .role-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 28px 26px 30px;
+      background: linear-gradient(140deg, rgba(30, 41, 59, .78), rgba(15, 23, 42, .94));
+      border: 1px solid rgba(56, 189, 248, .25);
+      border-radius: 28px;
+      overflow: hidden;
+      color: #fff;
+      isolation: isolate;
+      box-shadow: 0 10px 40px -15px #000 inset, 0 8px 32px -12px #0f172acc;
+      transition: .55s;
+      backdrop-filter: blur(14px) saturate(1.4);
+    }
+
+    .role-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 35% 20%, rgba(99, 102, 241, .45), transparent 70%);
+      opacity: .45;
+      mix-blend-mode: overlay;
+      transition: .6s;
+    }
+
+    .role-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(120deg, #38bdf8, #6366f1, #f472b6, #38bdf8);
+      background-size: 300% 100%;
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: .55;
+      transition: .6s;
+    }
+
+    .role-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 22px 60px -18px #6366f199, 0 10px 40px -14px #0f172acc;
+    }
+
+    .role-card:hover::after {
+      animation: borderShift 4s linear infinite;
+    }
+
+    .role-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .role-meta span {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .1);
+      padding: 6px 10px;
+      font-size: .6rem;
+      letter-spacing: .6px;
+      font-weight: 600;
+      color: #e2e8f0;
+      border-radius: 10px;
+      text-transform: uppercase;
+    }
+
+    .role-title {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: .6px;
+    }
+
+    .role-desc {
+      margin: 0 0 8px;
+      font-size: .85rem;
+      line-height: 1.55;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .apply-row {
+      margin-top: auto;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .apply-row a {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: .7rem;
+      letter-spacing: .7px;
+      font-weight: 700;
+      transition: .45s;
+      cursor: pointer !important;
+      pointer-events: auto !important;
+      z-index: 1;
+    }
+
+    .apply-row a.apply {
+      background: linear-gradient(120deg, #38bdf8, #6366f1);
+      color: #fff;
+      cursor: pointer !important;
+      pointer-events: auto !important;
+      z-index: 1;
+    }
+
+    .apply-row a.desc {
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .15);
+      color: #e2e8f0;
+    }
+
+    .apply-row a.apply:hover {
+      filter: brightness(1.15);
+    }
+
+    .apply-row a.desc:hover {
+      background: linear-gradient(120deg, #38bdf8, #6366f1);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    /* Culture Section */
+    .culture-section {
+      position: relative;
+      padding: 110px clamp(1.3rem, 5vw, 4rem) 120px;
+      background: radial-gradient(circle at 20% 75%, #1e293b, #020617 70%);
+      overflow: hidden;
+    }
+
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 34px;
+      margin-top: 50px;
+    }
+
+    .culture-card {
+      position: relative;
+      padding: 26px 24px 30px;
+      background: linear-gradient(140deg, rgba(30, 41, 59, .78), rgba(15, 23, 42, .94));
+      border: 1px solid rgba(56, 189, 248, .25);
+      border-radius: 26px;
+      overflow: hidden;
+      color: #fff;
+      box-shadow: 0 10px 40px -15px #000 inset, 0 8px 32px -12px #0f172acc;
+      transition: .55s;
+    }
+
+    .culture-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 55px -18px #6366f1aa, 0 10px 40px -14px #0f172acc;
+    }
+
+    .culture-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.02rem;
+      letter-spacing: .5px;
+      font-weight: 700;
+    }
+
+    .culture-card p {
+      margin: 0;
+      font-size: .8rem;
+      line-height: 1.5;
+      color: #94a3b8;
+    }
+
+    /* Footer quick */
+    
+    
+
+    @media (max-width:760px) {
+      .careers-hero {
+        padding: 120px 1.2rem 100px;
+      }
+
+      .roles-section,
+      .culture-section {
+        padding: 90px 1.1rem 90px;
+      }
+
+      .roles-grid {
+        gap: 26px;
+      }
+
+      .culture-grid {
+        gap: 26px;
+      }
+    }
+  </style>
+  <meta name="description" content="Careers at Sofzenix — join our team of engineers, designers and product builders.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://www.sofzenix.in/hiring.html">
+  <meta property="og:title" content="Careers at Sofzenix">
+  <meta property="og:description" content="Join our team of engineers, designers and product builders.">
+  <meta property="og:url" content="https://www.sofzenix.in/hiring.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="image/title-logo/Sofzenix IT Solutions.png">
+<link rel="apple-touch-icon" href="image/title-logo/Sofzenix IT Solutions.png">
+<link rel="icon" type="image/png" href="image/title-logo/Sofzenix IT Solutions.png">
+<link rel="apple-touch-icon" href="image/title-logo/Sofzenix IT Solutions.png">
+</head>
+
+<body class="page-fade-in">
+  <div class="animated-bg"></div>
+  <div class="floating-shapes">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+    <div class="shape shape4"></div>
+  </div>
+  <nav class="sfz-navbar">
+    <div class="sfz-nav-inner">
+      <div class="sfz-brand"><a href="index.html"><img src="Sofzenix IT Solution.png"
+            alt="Sofzenix IT Solutions LLP Logo"></a></div>
+      <input type="checkbox" id="sfz-nav-toggle" aria-label="Toggle navigation">
+      <label for="sfz-nav-toggle" class="sfz-burger" aria-label="Menu"><span></span><span></span><span></span></label>
+      <ul class="sfz-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li class="sfz-drop">
+          <input type="checkbox" id="sfz-services" class="sfz-drop-toggle">
+          <label for="sfz-services" class="sfz-drop-label">Services</label>
+          <div class="sfz-drop-panel">
+            <a href="web-dev.html">Web Platforms</a>
+            <a href="mobile-app-dev.html">Mobile Products</a>
+            <a href="digital-marketing.html">Digital Marketing</a>
+            <a href="ai.html">AI & Automation</a>
+            <a href="graphic-designing.html">UI & UX</a>
+            <a href="saleforce-dev.html">Salesforce Cloud</a>
+            <a href="maintenance-support.html">Managed Ops & 24/7</a>
+          </div>
+        </li>
+        <li><a href="hiring.html">Hire</a></li>
+  <li><a href="partners.html">Partners</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="sfz-mobile-actions">
+          <div class="sfz-mobile-btns">
+            <a href="php/verify.php" class="verify-btn">Verify</a>
+            <a href="php/login.php" class="get-started">Login</a>
+          </div>
+        </li>
+      </ul>
+      <div class="sfz-actions">
+        <a href="php/verify.php" class="verify-btn">Verify</a>
+        <a href="php/login.php" class="get-started">Login</a>
+      </div>
+    </div>
+  </nav>
+  <style>
+    body {
+      padding-top: 78px
+    }
+  </style>
+  <header class="careers-hero">
+    <div class="careers-hero-inner">
+      <div class="careers-badge-row"><span>Remote First</span><span>Quality
+          Obsessed</span><span>Autonomy</span><span>Inclusive</span></div>
+      <h1 class="careers-title">Build the Future with <span>Sofzenix</span></h1>
+      <p class="careers-sub">We craft resilient, scalable digital ecosystems. Join a guild of engineers, designers &
+        growth operators shipping high‑impact products with curiosity, craft and integrity.</p>
+      <a href="#open-roles" class="hero-careers-cta">Explore Open Roles</a>
+    </div>
+  </header>
+  <main>
+    <section id="open-roles" class="roles-section">
+      <div class="roles-head">
+        <h2>Open Roles</h2>
+        <p>Don’t see the exact fit? Send a speculative application—great builders shape their own roles here.</p>
+      </div>
+      <div class="filter-bar">
+        <button class="active">All</button><button>Engineering</button><button>Design</button><button>AI /
+          Data</button><button>Growth</button><button>Ops</button>
+      </div>
+      <div class="roles-grid">
+        <div class="role-card">
+          <div class="role-meta"><span>ENGINEERING</span><span>REMOTE</span></div>
+          <h3 class="role-title">Full Stack Engineer</h3>
+          <p class="role-desc">Ship end-to-end features across React / Node / cloud infra with performance & DX
+            excellence.</p>
+          <div class="apply-row">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCdA5h58aRVbSxCGMrRlpVpMwdysLT2DUh9ut0lggRlvsVfw/viewform"
+              class="apply" target="_blank">Apply</a>
+          </div>
+        </div>
+
+        <div class="role-card">
+          <div class="role-meta"><span>AI</span><span>REMOTE</span></div>
+          <h3 class="role-title">Machine Learning Engineer</h3>
+          <p class="role-desc">Design data pipelines, fine-tune models & productionize intelligent features.</p>
+          <div class="apply-row">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCdA5h58aRVbSxCGMrRlpVpMwdysLT2DUh9ut0lggRlvsVfw/viewform"
+              class="apply" target="_blank">Apply</a>
+          </div>
+        </div>
+
+        <div class="role-card">
+          <div class="role-meta"><span>MOBILE</span><span>HYBRID</span></div>
+          <h3 class="role-title">Mobile App Developer</h3>
+          <p class="role-desc">Craft performant cross-platform UI with animation polish & CI rigor.</p>
+          <div class="apply-row">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCdA5h58aRVbSxCGMrRlpVpMwdysLT2DUh9ut0lggRlvsVfw/viewform"
+              class="apply" target="_blank">Apply</a>
+          </div>
+        </div>
+
+        <div class="role-card">
+          <div class="role-meta"><span>DESIGN</span><span>REMOTE</span></div>
+          <h3 class="role-title">UI & UX</h3>
+          <p class="role-desc">Own discovery → prototyping → design system evolution with measurable UX lifts.</p>
+          <div class="apply-row">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCdA5h58aRVbSxCGMrRlpVpMwdysLT2DUh9ut0lggRlvsVfw/viewform"
+              class="apply" target="_blank">Apply</a>
+          </div>
+        </div>
+
+        <div class="role-card">
+          <div class="role-meta"><span>GROWTH</span><span>REMOTE</span></div>
+          <h3 class="role-title">Digital Marketing</h3>
+          <p class="role-desc">Experiment across SEO, paid, content & funnels to accelerate qualified pipeline.</p>
+          <div class="apply-row">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCdA5h58aRVbSxCGMrRlpVpMwdysLT2DUh9ut0lggRlvsVfw/viewform"
+              class="apply" target="_blank">Apply</a>
+          </div>
+        </div>
+
+        <div class="role-card">
+          <div class="role-meta"><span>CLOUD</span><span>REMOTE</span></div>
+          <h3 class="role-title">Salesforce Engineer</h3>
+          <p class="role-desc">Design, customize, and integrate Salesforce CRM solutions to empower business growth .</p>
+          <div class="apply-row">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCdA5h58aRVbSxCGMrRlpVpMwdysLT2DUh9ut0lggRlvsVfw/viewform"
+              class="apply" target="_blank">Apply</a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <section class="culture-section">
+      <div class="roles-head">
+        <h2>Culture & Principles</h2>
+        <p>Outcome ownership. Candor with care. Craftsmanship. Learning loops. Measurable impact. Sustainable pace.</p>
+      </div>
+      <div class="culture-grid">
+        <div class="culture-card">
+          <h3>Autonomy & Trust</h3>
+          <p>Clear context + high ownership. We bias to action without sacrificing quality.</p>
+        </div>
+        <div class="culture-card">
+          <h3>Engineering Rigor</h3>
+          <p>Performance, security & accessibility baked in—never bolted on after.</p>
+        </div>
+        <div class="culture-card">
+          <h3>Design Systems</h3>
+          <p>Reusable primitives drive speed, consistency and brand fidelity at scale.</p>
+        </div>
+        <div class="culture-card">
+          <h3>Data‑Driven Decisions</h3>
+          <p>Instrumentation + experimentation loops power continuous improvement.</p>
+        </div>
+        <div class="culture-card">
+          <h3>Learning Budget</h3>
+          <p>Dedicated time & stipend for deep skill growth and exploration.</p>
+        </div>
+        <div class="culture-card">
+          <h3>Inclusive Team</h3>
+          <p>Diverse perspectives fuel better products and more resilient solutions.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="careers-footer">© 2023 Sofzenix IT Solutions LLP</div>
+</body>
+
+</html>

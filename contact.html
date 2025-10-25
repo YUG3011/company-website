@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact - Sofzenix IT Solutions LLP</title>
+  <meta name="description" content="Contact Sofzenix — start a project, request a quote or verify certificates.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* service-hero copied from web-dev.html to ensure identical banner visuals */
+    .service-hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+      background: #030712;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .service-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('bg-stars.jpg') center/cover no-repeat, radial-gradient(circle at 30% 40%, #0f172acc, #020617 70%);
+      opacity: .55;
+      mix-blend-mode: screen;
+    }
+
+    .service-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, #1e293b88, #0f172a55);
+      backdrop-filter: blur(2px);
+    }
+
+    .service-hero-inner {
+      position: relative;
+      max-width: 960px;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .breadcrumb { font-size: .9rem; letter-spacing: .5px; color: #94a3b8; margin-bottom: 18px }
+    .breadcrumb a { color: #38bdf8; text-decoration: none }
+    .service-heading { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.12; margin: 0 0 18px }
+    .heading-accent { position: relative }
+    .heading-accent::after { content: ""; position: absolute; left: 50%; bottom: -6px; transform: translateX(-50%); width: 68%; height: 4px; border-radius: 4px; background: linear-gradient(90deg, #38bdf8, #6366f1) }
+    .service-sub { font-size: 1.08rem; color: #cbd5e1; max-width: 760px; margin: 0 auto 28px; line-height: 1.55 }
+    .cta-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center }
+    .cta-row a { background: linear-gradient(90deg, #38bdf8, #6366f1); color: #fff; text-decoration: none; padding: 12px 26px; font-weight: 600; border-radius: 10px; box-shadow: 0 6px 18px -4px #6366f166, 0 2px 6px -2px #0f172a; transition: .25s }
+    .cta-row a:hover { transform: translateY(-3px); box-shadow: 0 8px 28px -6px #6366f166 }
+
+    .bg-shape { position: absolute; border-radius: 50%; filter: blur(50px); opacity: .18; animation: floatShape 12s ease-in-out infinite }
+    .bg-shape.one { background: #6366f1; width: 420px; height: 420px; top: -140px; left: -120px }
+    .bg-shape.two { background: #38bdf8; width: 360px; height: 360px; bottom: -120px; right: -140px; animation-delay: 3s }
+    @keyframes floatShape { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-40px) } }
+  </style>
+<link rel="icon" type="image/png" href="image/title-logo/Sofzenix IT Solutions.png">
+<link rel="apple-touch-icon" href="image/title-logo/Sofzenix IT Solutions.png">
+</head>
+<body class="page-fade-in">
+  <div class="animated-bg"></div>
+  <div class="floating-shapes">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+    <div class="shape shape4"></div>
+  </div>
+  <nav class="sfz-navbar">
+    <div class="sfz-nav-inner">
+      <div class="sfz-brand"><a href="index.html"><img src="Sofzenix IT Solution.png" alt="Sofzenix IT Solutions LLP Logo"></a></div>
+      <input type="checkbox" id="sfz-nav-toggle" aria-label="Toggle navigation">
+      <label for="sfz-nav-toggle" class="sfz-burger" aria-label="Menu"><span></span><span></span><span></span></label>
+      <ul class="sfz-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li class="sfz-drop">
+          <input type="checkbox" id="sfz-services" class="sfz-drop-toggle">
+          <label for="sfz-services" class="sfz-drop-label">Services</label>
+          <div class="sfz-drop-panel">
+            <a href="web-dev.html">Web Platforms</a>
+            <a href="mobile-app-dev.html">Mobile Products</a>
+            <a href="digital-marketing.html">Digital Marketing</a>
+            <a href="ai.html">AI & Automation</a>
+            <a href="graphic-designing.html">UI & UX</a>
+            <a href="saleforce-dev.html">Salesforce Cloud</a>
+            <a href="maintenance-support.html">Managed Ops & 24/7</a>
+          </div>
+        </li>
+        <li><a href="hiring.html">Hire</a></li>
+  <li><a href="partners.html">Partners</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="sfz-mobile-actions">
+          <div class="sfz-mobile-btns">
+            <a href="php/verify.php" class="verify-btn">Verify</a>
+            <a href="php/login.php" class="get-started">Login</a>
+          </div>
+        </li>
+      </ul>
+      <div class="sfz-actions">
+        <a href="php/verify.php" class="verify-btn">Verify</a>
+        <a href="php/login.php" class="get-started">Login</a>
+      </div>
+    </div>
+  </nav>
+  <style>body{padding-top:78px}</style>
+  <header class="service-hero">
+    <div class="bg-shape one"></div>
+    <div class="bg-shape two"></div>
+    <div class="service-hero-inner">
+      <div class="breadcrumb"><a href="index.html">Home</a> / <a href="contact.html">Contact</a></div>
+      <div class="site-tagline">"Start a conversation — we’ll handle the rest"</div>
+      <h1 class="service-heading"><span class="heading-accent">Let's Talk With Us</span></h1>
+      <div class="service-sub">Share your project goals, timeline and budget — we’ll respond within one business day.</div>
+      <div class="cta-row"><a href="#contact">Send a Request</a><a href="php/verify.php" class="secondary">Verify Certificate</a></div>
+    </div>
+  </header>
+
+  <!-- exact contact section from index.html -->
+  <section id="contact" class="contact-section contact-pro">
+    <div class="contact-inner">
+      <div class="contact-head">
+        <h2 class="contact-title"><span>Contact </span> Us</h2>
+        <p class="contact-sub">Tell us about your goals and we’ll assemble the right blend of strategy, design & engineering to ship meaningful outcomes.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-panel contact-panel-form">
+          <form class="contact-form-pro contact-form-compact" aria-label="Project enquiry form" action="php/contact_submit.php" method="POST">
+            <div class="row-2col">
+              <div class="form-field">
+                <label>Name</label>
+                <input name="name" type="text" placeholder="Jane Doe" required>
+              </div>
+              <div class="form-field">
+                <label>Email</label>
+                <input name="email" type="email" placeholder="you@company.com" required>
+              </div>
+            </div>
+            <div class="row-2col">
+              <div class="form-field">
+                <label>Company</label>
+                <input name="company" type="text" placeholder="Acme Inc" required>
+              </div>
+              <div class="form-field">
+                <label>City</label>
+                <input name="city" type="text" placeholder="e.g. hydrabad" required>
+              </div>
+            </div>
+            <div class="form-field">
+              <label>Project Goals</label>
+              <textarea name="message" rows="5" placeholder="Briefly describe objectives, timeline & success metrics" required></textarea>
+            </div>
+            <div class="row-2col">
+              <div class="form-field">
+                <label>Project Title</label>
+                <input name="title" type="text" placeholder="e.g. Management" required>
+              </div>
+              <div class="form-field">
+                <label>Phone (Give A Valid Number)</label>
+                <input name="phone" type="text" placeholder="+91 ...">
+              </div>
+            </div>
+            <button type="submit" class="contact-submit stretch-btn">Send Request →</button>
+            <p class="contact-privacy">Any issue ? Contact us At <a href="mailto:contact@sofzenix.in">contact@sofzenix.in</a> or <a href="tel:+916305818324">+91 - 63058-18324</a>.</p>
+          </form>
+        </div>
+
+        <div class="contact-panel contact-panel-info">
+          <div class="info-block">
+            <h3>Why Partner With Us?</h3>
+            <ul class="bullet-list">
+              <li>Full lifecycle ownership from strategy to 24/7 ops</li>
+              <li>Design systems & growth experimentation baked in</li>
+              <li>Transparent velocity metrics & release cadence</li>
+              <li>Security, performance & accessibility by default</li>
+              <li>Agile delivery with rapid iteration cycles</li>
+              <li>Dedicated project manager for every client</li>
+              <li>Proven track record across diverse industries</li>
+              <li>Seamless collaboration with your in-house teams</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <h3>Contact</h3>
+            <p class="contact-line">contact@sofzenix.in</p>
+            <p class="contact-line">+91 63058 18324</p>
+            <p class="contact-line">Telangana, Hyderabad-500032</p>
+          </div>
+          <div class="trust-metrics">
+            <div class="trust-metrics lets-connect">
+              <div class="lets-connect-content">
+
+                <div style="display:flex;flex-direction:column;align-items:center;width:100%;">
+                  <div class="lets-connect-title" style="text-align:center;font-size:1.3em;font-weight:700;padding:18px 32px 18px 32px;margin-bottom:32px;max-width:260px;width:100%;margin-left:auto;margin-right:auto;">Let's Connect</div>
+                  <div class="social-row" style="display:flex;flex-direction:row;justify-content:center;align-items:center;padding:18px 0 18px 0;gap:18px;width:100%;max-width:420px;">
+                    <a href="https://www.linkedin.com/company/softech-it-solution/posts/?feedView=all" aria-label="LinkedIn" class="social-btn social-link linkedin">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                          d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8.99h5V24H0V8.99zM8.5 8.99h4.78v2.03h.07c.67-1.27 2.31-2.6 4.76-2.6C23.6 8.42 24 11.1 24 14.58V24h-5v-8.54c0-2.04-.04-4.66-2.84-4.66-2.84 0-3.28 2.22-3.28 4.5V24H8.5V8.99z"
+                          fill="currentColor" />
+                      </svg>
+                    </a>
+                    <a href="https://x.com/SoftechITSol" aria-label="Twitter" class="social-btn social-link twitter">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                          d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9.03 9.03 0 0 1-2.86 1.1A4.5 4.5 0 0 0 16.11 0c-2.5 0-4.52 2.34-3.91 4.8A12.94 12.94 0 0 1 1.64.88 4.49 4.49 0 0 0 2.9 6.7 4.47 4.47 0 0 1 .89 6.4v.06A4.5 4.5 0 0 0 4.48 11a4.52 4.52 0 0 1-2.03.08A4.5 4.5 0 0 0 6.48 15a9.04 9.04 0 0 1-6.65 1.86A12.74 12.74 0 0 0 7.29 22c8.3 0 12.84-7.28 12.84-13.59 0-.21 0-.42-.02-.63A9.22 9.22 0 0 0 23 3z"
+                          fill="currentColor" />
+                      </svg>
+                    </a>
+                    <a href="https://github.com/softechitsolution" aria-label="GitHub" class="social-btn social-link github">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                          d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.24.78-.54 0-.26-.01-1.13-.02-2.05-3.2.7-3.88-1.45-3.88-1.45-.52-1.33-1.26-1.69-1.26-1.69-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.65 1.24 3.29.95.1-.74.4-1.24.73-1.52-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.17-3.1-.12-.29-.51-1.46.11-3.04 0 0 .95-.3 3.12 1.17a10.8 10.8 0 0 1 5.68 0c2.17-1.47 3.12-1.17 3.12-1.17.62 1.58.23 2.75.11 3.04.73.81 1.17 1.84 1.17 3.1 0 4.43-2.71 5.41-5.29 5.69.41.36.77 1.08.77 2.18 0 1.58-.01 2.85-.01 3.24 0 .3.2.65.79.54C20.71 21.38 24 17.08 24 12 24 5.65 18.35.5 12 .5z"
+                          fill="currentColor" />
+                      </svg>
+                    </a>
+                    <a href="https://www.instagram.com/sofzenix_it_solutionsllp/" aria-label="Instagram" class="social-btn social-link insta">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                          d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zm6.5-.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+                          fill="currentColor" />
+                      </svg>
+                    </a>
+                    <a href="https://www.facebook.com/share/1B7FRzxjo9/" aria-label="Facebook" class="social-btn social-link fb">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                          d="M22 12.07C22 6.48 17.52 2 12 2S2 6.48 2 12.07c0 4.99 3.66 9.12 8.44 9.95v-7.04H8.21v-2.91h2.23V9.41c0-2.2 1.32-3.42 3.34-3.42.97 0 1.98.17 1.98.17v2.18h-1.12c-1.1 0-1.44.68-1.44 1.38v1.66h2.46l-.39 2.91h-2.07v7.04C18.34 21.19 22 17.06 22 12.07z"
+                          fill="currentColor" />
+                      </svg>
+                    </a>
+                    <a href="mailto:contact@sofzenix.in" aria-label="Email" class="social-btn social-link mail">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                          d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                          fill="currentColor" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="careers-footer">© 2023 Sofzenix IT Solutions LLP</footer>
+
+</body>
+</html>
