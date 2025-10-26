@@ -7,12 +7,12 @@
 // define('DB_PASS', 'Sofzenix@2023'); // set if you changed root passwor
 // define('ADMIN_EMAIL', 'contact@sofzenix.in'); // used for contact form notifications (optional)
 
-define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'sofzenix_it_solution');
-define('DB_USER', 'root');
-define('DB_PASS', ''); // set if you changed root password
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'sofzenix1_sofzenix_it_solution');
+define('DB_USER', 'sofzenix1_phpma');
+define('DB_PASS', 'Sofzenix@2023'); // set if you changed root password
 const ADMIN_USERNAME = 'admin';
-const ADMIN_PASSWORD = 'Admin@123';
+const ADMIN_PASSWORD ='Admin@123';
 
 // Admin credentials (temporary — we'll switch to hashed passwords next)
 // Maintenance toggle: presence of this file disables DB connection and enables maintenance mode.

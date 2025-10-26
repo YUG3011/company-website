@@ -197,21 +197,6 @@ form.verify-form button:hover{background-position:100% 50%;transform:translateY(
 footer{padding:50px 0 46px;text-align:center;font-size:.6rem;letter-spacing:.6px;color:#64748b;z-index:2}
 /* Subtle overlay glows */
 .verify-glow:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(99,102,241,.25),transparent 70%),radial-gradient(circle at 25% 70%,rgba(56,189,248,.25),transparent 70%);mix-blend-mode:overlay;opacity:.55;pointer-events:none}
-/* Mobile-friendly date label: show a visible label on small screens where native date inputs hide placeholders */
-.date-wrap{position:relative}
-.date-wrap input[type=date]{background:transparent}
-.date-wrap .floating-label{display:none;position:absolute;left:18px;top:50%;transform:translateY(-50%);pointer-events:none;color:#94a3b8;font-weight:700;font-size:.95rem;transition:all .18s ease;padding:0 6px}
-@media (max-width:620px){
-  /* Mobile: place label left and date input right to avoid overlap */
-  .date-wrap{display:flex;align-items:center;gap:12px}
-  .date-wrap .floating-label{display:block;position:static;top:auto;left:auto;transform:none;background:transparent;color:#94a3b8;font-weight:700;font-size:.95rem;flex:0 0 42%;padding:0;margin:0}
-  .date-wrap input[type=date]{flex:1;text-align:right;padding:12px 14px}
-  /* keep focus color but remove floating effects on mobile */
-  .date-wrap.filled .floating-label,
-  .date-wrap input[type=date]:focus + .floating-label{
-    color:#38bdf8;background:transparent;box-shadow:none;padding:0;font-size:.95rem
-  }
-}
 </style>
 <link rel="icon" type="image/png" href="image/title-logo/Sofzenix IT Solutions.png">
 <link rel="apple-touch-icon" href="image/title-logo/Sofzenix IT Solutions.png">
@@ -225,21 +210,6 @@ footer{padding:50px 0 46px;text-align:center;font-size:.6rem;letter-spacing:.6px
     <div class="shape shape3"></div>
     <div class="shape shape4"></div>
   </div>
-  <script>
-    (function(){
-      var dob = document.getElementById('dob-field');
-      if(!dob) return;
-      var wrap = dob.closest('.date-wrap');
-      function update(){
-        if(dob.value && dob.value.trim()!=='') wrap.classList.add('filled'); else wrap.classList.remove('filled');
-      }
-      dob.addEventListener('input', update);
-      dob.addEventListener('change', update);
-      dob.addEventListener('focus', function(){ wrap.classList.add('filled'); });
-      dob.addEventListener('blur', update);
-      update();
-    })();
-  </script>
   <!-- Unified User Navbar (same as public site) -->
   <nav class="sfz-navbar">
     <div class="sfz-nav-inner">
@@ -292,10 +262,7 @@ footer{padding:50px 0 46px;text-align:center;font-size:.6rem;letter-spacing:.6px
           <option value="Internship" <?php if(strcasecmp($type,'Internship')===0) echo 'selected';?>>Internship</option>
           <option value="Employee" <?php if(strcasecmp($type,'Employee')===0) echo 'selected';?>>Employee</option>
         </select>
-        <div class="date-wrap">
-          <input id="dob-field" name="dob" type="date" value="<?php echo htmlspecialchars($_POST['dob'] ?? ''); ?>" required />
-          <label class="floating-label" for="dob-field">Date of birth</label>
-        </div>
+        <input placeholder="Dob" name="dob" type="date" value="<?php echo htmlspecialchars($_POST['dob'] ?? ''); ?>" required  />
         <button type="submit">Verify →</button>
       </form>
       <div class="notice">Case-insensitive match. PDFs render below if found.</div>
