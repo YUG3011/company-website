@@ -42,8 +42,8 @@
                         <a href="maintenance-support.html">Managed Ops & 24/7</a>
                     </div>
                 </li>
-                <li><a href="hiring.html">Hire</a></li>
                 <li><a href="partners.html">Partners</a></li>
+                <li><a href="hiring.html">Hire</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <!-- Mobile-only actions so Verify/Login appear in hamburger menu -->
                 <li class="sfz-mobile-actions">
@@ -212,58 +212,96 @@
             color: #cbd5e1
         }
 
-        /* Partner cards (one per row) */
+        /* Partner grid layout (grid gives us control to make long items wider instead of taller) */
         .partner-list {
-            display: flex;
-            flex-direction: column;
-            gap: 18px
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            grid-auto-rows: 10px; /* used by JS to calculate row spans and avoid large gaps */
+            align-items: start;
         }
 
         .partner-card {
             display: flex;
-            gap: 18px;
-            align-items: flex-start;
+            flex-direction: column; /* stack logo above text on larger screens */
+            gap: 12px;
+            align-items: center;
+            text-align: center;
             background: linear-gradient(140deg, rgba(30, 41, 59, .78), rgba(15, 23, 42, .94));
-            border: 1px solid rgba(56, 189, 248, .25);
-            border-radius: 28px;
-            padding: 20px 22px;
-            box-shadow: 0 10px 40px -15px #000 inset, 0 8px 32px -12px #0f172acc
+            border: 1px solid rgba(56, 189, 248, .12);
+            border-radius: 18px;
+            padding: 18px;
+            box-shadow: 0 10px 40px -15px #000 inset, 0 8px 32px -12px #0f172acc;
+            /* no fixed min-height — let content define height so JS can compute proper spans */
         }
 
+        /* Logo styling - centered on large screens */
         .partner-card img {
             width: 84px;
             height: 84px;
             object-fit: contain;
-            border-radius: 16px;
+            border-radius: 12px;
             background: #fff;
             padding: 10px;
-            flex: 0 0 auto
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* utility sizes: allow some cards to be visually larger and span columns */
+        .partner-card.size-sm img { width: 64px; height: 64px; }
+        .partner-card.size-md img { width: 84px; height: 84px; }
+        .partner-card.size-lg img { width: 110px; height: 110px; }
+
+        /* Make size-lg span 2 columns on wide screens so long descriptions can get width instead of extra height */
+        .partner-card.size-lg { padding: 22px; border-radius: 22px; }
+        @media (min-width: 1001px) {
+            .partner-card.size-lg { grid-column: span 2; }
+        }
+
+        /* Responsive grid counts */
+        @media (max-width: 1000px) {
+            .partner-list { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* On small screens: use single-column stacked list and revert to left-aligned row layout for compactness */
+        @media (max-width: 680px) {
+            .partner-list { grid-template-columns: 1fr; }
+            .partner-card { flex-direction: row; align-items: flex-start; text-align: left; }
+            .partner-card img { width: 70px; height: 70px; margin-right: 12px; }
+            .partner-meta { display: block; }
+            /* Ensure logo sits on the left and meta aligns left on mobile */
+            .partner-card img { margin-left: 0; margin-right: 12px; }
+            .partner-meta { align-items: flex-start; text-align: left; }
+        }
+
+        .partner-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: center;
         }
 
         .partner-meta h3 {
-            margin: 0 0 8px;
+            margin: 0;
             font-size: 1.15rem;
             font-weight: 800;
-            color: #e2e8f0
+            color: #e2e8f0;
         }
 
         .partner-meta p {
             margin: 0;
             color: #94a3b8;
-            line-height: 1.65
+            line-height: 1.65;
+            max-width: 56ch; /* keep line lengths readable on wide cards */
         }
 
-        @media (max-width:680px) {
-            .partner-card {
-                flex-direction: column;
-                align-items: flex-start
-            }
-
-            .partner-card img {
-                width: 70px;
-                height: 70px
-            }
+        /* On mobile, left-align meta text next to the logo */
+        @media (max-width: 680px) {
+            .partner-meta { align-items: flex-start; }
+            .partner-meta p { max-width: none; }
         }
+
+        
 
         /* Centered intro text styling */
         .partners-intro {
@@ -295,42 +333,79 @@
         <p class="partners-intro">We collaborate with industry leaders to deliver outstanding results. Below are our
             current technology and strategic partners.</p>
         <div class="partner-list">
-            <article class="partner-card">
+            <article class="partner-card size-md">
                 <img src="image/partners/Picture2.png" alt="iBirds Software Pvt. Ltd."
                     onerror="this.src='image/title-logo/f.png'" />
                 <div class="partner-meta">
                     <h3>iBirds Software Pvt. Ltd.</h3>
-                    <p>iBirds Software Pvt. Ltd. is Salesforce Consulting Partners, and a leading customer-centric
-                        Consulting Firm based in India (HQ), with offices across India and US. We have been providing
-                        reliable solutions to our clients since 2008, and in this tenure, we have successfully delivered
-                        many projects with a more personal and nimble approach unlike other traditional consulting
-                        firms. Our top priority is to help you tackle your biggest challenges and turn your vision into
-                        reality. We have worked with more than 250+ customers and have included a team of over 170
-                        certified professionals engaged in different projects across continents. With iBirds, it is
-                        never just about the project at hand, it’s about building trust and enabling our customer’s
-                        long-term benefits. We take utmost care in understanding what you want, involving your people in
-                        implementation and support, and share our skills every step of the way to ensure complete
-                        success.</p>
+                    <p>ABOUT<br>
+                    iBirds Software Pvt. Ltd. is Salesforce Consulting Partners, and a leading customer-centric Consulting Firm based in India(HQ), with offices across India and US. We have been providing reliable solutions to our clients since 2008, and in this tenure, we have successfully delivered many projects with a more personal and nimble approach unlike other traditional consulting firms. Our top priority is to help you tackle your biggest challenges and turn your vision into reality. We have worked with more than 250+ customers and have included a team of over 170 certified professionals engaged in different projects across continents. With iBirds, it is never just about the project at hand, it’s about building trust and enabling our customer’s long-term benefits. We take utmost care in understanding what you want, involving your people in implementation and support, and share our skills every step of the way to ensure complete success.</p>
                 </div>
             </article>
 
-            <article class="partner-card">
+            <article class="partner-card size-lg">
                 <img src="image/partners/Picture1.jpg" alt="Ben8X Digi Marketing Private Limited"
                     onerror="this.src='image/title-logo/f.png'" />
                 <div class="partner-meta">
                     <h3>Ben8X Digi Marketing Private Limited</h3>
-                    <p>At Ben8X Digi Marketing Private Limited, we are driven by a clear vision — to become a leading
-                        force in the digital marketing landscape by empowering startups, small businesses, and emerging
-                        brands with smart, scalable, and result-oriented marketing solutions. Our mission is to fuel
-                        digital growth through strategic services, including Google Ads, SEO optimization, and social
-                        media management, designed to deliver measurable impact. With a strong foundation of expertise,
-                        Ben8X Digi Marketing transforms digital ambitions into real success stories. We specialize in
-                        building robust social media presences, enhancing online visibility through customized SEO
-                        strategies, and running targeted Google Ads campaigns that truly perform. Our approach is simple
-                        yet powerful — we listen, understand, and create. By deeply understanding each client’s
-                        business, audience, and goals, we develop marketing strategies that are transparent, creative,
-                        and data-driven. At Ben8X, we don’t just market — we create pathways for sustainable digital
-                        growth.</p>
+                    <p>ABOUT<br>
+                    At Ben8X Digi Marketing Private Limited, we are driven by a clear vision — to become a leading force in the digital marketing landscape by empowering startups, small businesses, and emerging brands with smart, scalable, and result-oriented marketing solutions. Our mission is to fuel digital growth through strategic services, including Google Ads, SEO optimization, and social media management, designed to deliver measurable impact. With a strong foundation of expertise, Ben8X Digi Marketing transforms digital ambitions into real success stories. We specialize in building robust social media presences, enhancing online visibility through customized SEO strategies, and running targeted Google Ads campaigns that truly perform. Our approach is simple yet powerful — we listen, understand, and create. By deeply understanding each client’s business, audience, and goals, we develop marketing strategies that are transparent, creative, and data-driven. At Ben8X, we don’t just market — we create pathways for sustainable digital growth.</p>
+                </div>
+            </article>
+
+            <article class="partner-card size-sm">
+                <img src="image/partners/MARANATHA.jpg" alt="MARANATHA INNOVATIONS" onerror="this.src='image/title-logo/f.png'" />
+                <div class="partner-meta">
+                    <h3>MARANATHA INNOVATIONS</h3>
+                    <p>Maranatha innovations develops and manage a diverse portfolio of products, leveraging advanced technologies and user- centric design to deliver scalable, secure, and impactful solutions across multiple domains.</p>
+                </div>
+            </article>
+
+            <article class="partner-card size-md">
+                <img src="image/partners/modern-complete.png" alt="Modern Tek" onerror="this.src='image/title-logo/f.png'" />
+                <div class="partner-meta">
+                    <h3>Modern Tek</h3>
+                    <p>Modern Tek a cutting-edge tech company dedicated to delivering innovative solutions to our clients. Our team of skilled engineers, developers, and designers work tirelessly to create technology that meets the needs of today’s fast-paced and ever-changing world.</p>
+                </div>
+            </article>
+
+            <article class="partner-card size-sm">
+                <img src="image/partners/razorpay.jpg" alt="Razorpay" onerror="this.src='image/title-logo/f.png'" />
+                <div class="partner-meta">
+                    <h3>Razorpay</h3>
+                    <p>Razorpay is the only payments solution in India that allows businesses to accept, process and disburse payments with its product suite. It gives you access to all payment modes including credit card, debit card, netbanking, UPI and popular wallets including JioMoney, Mobikwik, Airtel Money, FreeCharge, Ola Money and PayZapp.</p>
+                </div>
+            </article>
+
+            <article class="partner-card size-lg">
+                <img src="image/partners/razorpayx.png" alt="RazorpayX" onerror="this.src='image/title-logo/f.png'" />
+                <div class="partner-meta">
+                    <h3>Razorpay X</h3>
+                    <p>RazorpayX supercharges your business banking experience, bringing effectiveness, efficiency, and excellence to all financial processes. With RazorpayX, businesses can get access to fully-functional current accounts, supercharge their payouts and automate payroll compliance.</p>
+                </div>
+            </article>
+
+            <article class="partner-card size-md">
+                <img src="image/partners/S3 Hirewise.png" alt="S3 Hirewise Solutions" onerror="this.src='image/title-logo/f.png'" />
+                <div class="partner-meta">
+                    <h3>S3 Hirewise Solutions</h3>
+                    <p>S3 Hirewise Solutions, we specialize in connecting top-tier IT talent with leading technology companies. Our mission is to bridge the gap between skilled professionals and organizations seeking innovative solutions. With a deep understanding of the IT landscape, we deliver tailored staffing and recruiting services to meet the evolving needs of the tech industry.</p>
+                </div>
+            </article>
+
+            <article class="partner-card size-sm">
+                <img src="image/partners/UNLOX.png" alt="Unlox" onerror="this.src='image/title-logo/f.png'" />
+                <div class="partner-meta">
+                    <h3>Unlox</h3>
+                    <p>Unlox Academy is a modern learning ecosystem built for the future of education. We simplify the learning experience by combining innovation, accessibility, and real-world relevance into a unified platform. Designed to align with evolving industry needs, Unlox enables learners to stay ahead in a world where skills matter more than grades. to make learning effortless by equipping students with every learning essentials, toolkits and a complete ecosystem to help them achieve their goals with confidence and ease. Unlox envisions a futuristic student society filled with smart, skillful and true knowledge over vast areas of every domain. Our goal is to empower every student to land their dream job with ease.</p>
+                </div>
+            </article>
+
+            <article class="partner-card">
+                <img src="image/partners/verttrix.png" alt="VETTRIX" onerror="this.src='image/title-logo/f.png'" />
+                <div class="partner-meta">
+                    <h3>VETTRIX</h3>
+                    <p>Our values are deeply embedded in everything we do and shape the way we work every day. We prioritize quality above all else, striving to deliver only the best results, even if it means starting over to ensure perfection, because subpar work has no place in our standards. Integrity guides our actions; we believe in honesty, transparency, and doing what’s right, both as individuals and as an organization. We also value freedom—the freedom to think creatively, act independently, and demand excellence. Our team has the liberty to choose how they achieve their goals, while our customers have the freedom to expect the best from us. Finally, we believe in teamwork, where collaboration and trust drive success. By sharing responsibilities and leveraging each other’s strengths, we reduce stress and enhance creativity. When strong minds unite with a shared purpose, they truly have the power to change the world.</p>
                 </div>
             </article>
 
@@ -340,6 +415,37 @@
     </main>
 
     <div class="careers-footer">© 2023 Sofzenix IT Solutions LLP</div>
+    <script>
+        // Grid row-span helper: compute how many rows each card needs so tall cards don't leave large gaps.
+        (function () {
+            const grid = document.querySelector('.partner-list');
+            if (!grid) return;
+
+            function resizeItems() {
+                const rowHeight = parseInt(getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+                const gap = parseInt(getComputedStyle(grid).getPropertyValue('gap')) || parseInt(getComputedStyle(grid).getPropertyValue('grid-gap')) || 18;
+                const items = grid.querySelectorAll('.partner-card');
+                items.forEach(item => {
+                    item.style.gridRowEnd = null;
+                    const contentHeight = item.getBoundingClientRect().height;
+                    // calculate span - include gaps
+                    const span = Math.ceil((contentHeight + gap) / (rowHeight + gap));
+                    item.style.gridRowEnd = 'span ' + span;
+                });
+            }
+
+            // debounce helper
+            let t;
+            function debounceResize() {
+                clearTimeout(t);
+                t = setTimeout(resizeItems, 120);
+            }
+
+            // Run on load and resize
+            window.addEventListener('load', resizeItems);
+            window.addEventListener('resize', debounceResize);
+        })();
+    </script>
 </body>
 
 </html>
